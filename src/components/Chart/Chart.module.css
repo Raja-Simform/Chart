@@ -3,8 +3,8 @@
   width: 80%;
   display: flex;
   flex-direction: column;
-  color: white;
   padding: 1rem;
   font-family: monospace;
   align-items: center;
+  background-color: white;
 }
