@@ -8,16 +8,16 @@ import "primeicons/primeicons.css";
 import { useState } from "react";
 
 function App() {
-  const [chartType,setChartType]=useState<string>("");
-  function handleCLick(type:string){
+  const [chartType, setChartType] = useState<string | null>(null);
+  function handleCLick(type: string) {
     setChartType(type);
   }
   return (
     <div>
       <Header />
       <main className="container">
-        <SideBar handleClick={handleCLick}/>
-        <Chart type={chartType}/>
+        <SideBar handleClick={handleCLick} />
+        <Chart type={chartType} />
       </main>
     </div>
   );
