@@ -8,11 +8,13 @@ import "primeicons/primeicons.css";
 
 function App() {
   return (
-    <>
+    <div>
       <Header />
-      <SideBar />
-      <Chart />
-    </>
+      <main className="container">
+        <SideBar />
+        <Chart />
+      </main>
+    </div>
   );
 }
 

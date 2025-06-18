@@ -1,0 +1,11 @@
+.sidebar {
+  border: 1px solid white;
+  width: 20%;
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 1rem;
+  font-family: monospace;
+  align-items: center;
+}
