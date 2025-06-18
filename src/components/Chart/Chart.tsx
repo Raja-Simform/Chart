@@ -1,6 +1,9 @@
-import styles from './Chart.module.css' 
-export default function Chart() {
+import styles from './Chart.module.css'
+interface ChartProps{
+  type:string;
+} 
+export default function Chart({type}:ChartProps) {
   return <div className={styles.chart}>
-    No Chart To Display
+    {type}
   </div>;
 }

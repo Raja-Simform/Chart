@@ -7,4 +7,11 @@
   padding: 1rem;
   font-family: monospace;
   align-items: center;
+  gap: 1rem;
+}
+.buttonchart{
+  height: 2rem;
+  width: 16rem;
+  font-family: monospace;
+  
 }
