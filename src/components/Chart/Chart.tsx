@@ -20,7 +20,7 @@ export default function Chart({ type }: ChartProps) {
           },
         ],
         chart: {
-          type: type as "bar" | "line" | "area",
+          type: type,
           height: 350,
           toolbar: {
             show: false,

@@ -1,8 +1,9 @@
+import { ChartType } from "../../constants/constant";
 import styles from "./SideBar.module.css";
 
 import { Button } from "primereact/button";
 interface SideBarProps {
-  handleClick: (type: string) => void;
+  handleClick: (type: ChartType) => void;
 }
 export default function SideBar({ handleClick }: SideBarProps) {
   return (
@@ -12,19 +13,19 @@ export default function SideBar({ handleClick }: SideBarProps) {
         type="button"
         label="Bar Chart"
         className={styles.buttonchart}
-        onClick={() => handleClick("bar")}
+        onClick={() => handleClick(ChartType.Bar)}
       />
       <Button
         type="button"
         label="Line Chart"
         className={styles.buttonchart}
-        onClick={() => handleClick("line")}
+        onClick={() => handleClick(ChartType.Line)}
       />
       <Button
         type="button"
         label="Area Chart"
         className={styles.buttonchart}
-        onClick={() => handleClick("area")}
+        onClick={() => handleClick(ChartType.Area)}
       />
     </div>
   );

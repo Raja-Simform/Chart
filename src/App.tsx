@@ -6,10 +6,12 @@ import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import { useState } from "react";
+import type { ChartType } from "./constants/constant";
 
 function App() {
-  const [chartType, setChartType] = useState<string | null>(null);
-  function handleCLick(type: string) {
+  const [chartType, setChartType] = useState<ChartType | null>(null);
+
+  function handleCLick(type: ChartType) {
     setChartType(type);
   }
   return (
