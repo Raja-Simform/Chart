@@ -1,0 +1,14 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+.x_axis {
+  display: flex;
+  flex-direction: column;
+}
+.y_axis {
+  display: flex;
+  flex-direction: column;
+}

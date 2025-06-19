@@ -1,6 +1,7 @@
 import ApexCharts from "apexcharts";
 import styles from "./Chart.module.css";
 import { useEffect, useRef } from "react";
+import { useAppSelector } from "../../store/ChartStore";
 
 interface ChartProps {
   type: string | null;
@@ -8,6 +9,7 @@ interface ChartProps {
 
 export default function Chart({ type }: ChartProps) {
   const chartRef = useRef(null);
+  const chartData = useAppSelector((state) => state.chart);
 
   useEffect(() => {
     let chartInstance: ApexCharts | null = null;
@@ -16,7 +18,7 @@ export default function Chart({ type }: ChartProps) {
       const options = {
         series: [
           {
-            data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380],
+            data: chartData.y_axis,
           },
         ],
         chart: {
@@ -37,18 +39,7 @@ export default function Chart({ type }: ChartProps) {
           enabled: false,
         },
         xaxis: {
-          categories: [
-            "South Korea",
-            "Canada",
-            "United Kingdom",
-            "Netherlands",
-            "Italy",
-            "France",
-            "Japan",
-            "United States",
-            "China",
-            "Germany",
-          ],
+          categories: chartData.x_axis,
         },
       };
 
@@ -61,7 +52,7 @@ export default function Chart({ type }: ChartProps) {
         chartInstance.destroy();
       }
     };
-  }, [type]);
+  }, [type, chartData.y_axis, chartData.x_axis]);
 
   return (
     <div className={styles.chart} ref={chartRef}>

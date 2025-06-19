@@ -14,6 +14,7 @@ function App() {
   function handleCLick(type: ChartType) {
     setChartType(type);
   }
+
   return (
     <div>
       <Header />
