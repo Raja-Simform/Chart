@@ -1,7 +1,7 @@
 import { ChartType } from "../../constants/constant";
 import styles from "./SideBar.module.css";
-
 import { Button } from "primereact/button";
+
 interface SideBarProps {
   handleClick: (type: ChartType) => void;
 }
