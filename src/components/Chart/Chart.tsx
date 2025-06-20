@@ -54,9 +54,5 @@ export default function Chart({ type }: ChartProps) {
     };
   }, [type, chartData.y_axis, chartData.x_axis]);
 
-  return (
-    <div className={styles.chart} ref={chartRef}>
-      No Chart Selected
-    </div>
-  );
+  return <div className={styles.chart} ref={chartRef}></div>;
 }
