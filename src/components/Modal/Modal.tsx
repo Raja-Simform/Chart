@@ -58,7 +58,7 @@ export default function Modal({ handleModal }: ModalProps) {
           severity: "warn",
           summary: "Warn",
           detail: "Add Valid Data!",
-          life: 500,
+          life: 1000,
         });
       }
     }
@@ -68,7 +68,7 @@ export default function Modal({ handleModal }: ModalProps) {
     <Dialog
       header="Enter Data"
       visible={chartData.modalVisible}
-      style={{ width: "50vw" }}
+      style={{ width: "35vw" }}
       onHide={() => {
         if (!chartData.modalVisible) return;
         dispatch(
@@ -78,16 +78,26 @@ export default function Modal({ handleModal }: ModalProps) {
         );
       }}
     >
-      <div className={styles.x_axis}>
-        <p>X-axis Data (Labels)</p>
-        <span>Enter comma-seperated values</span>
-        <InputText onChange={(e) => setStateX(e.target.value)} value={stateX} />
-      </div>
+      <div className={styles.input}>
+        <div className={styles.x_axis}>
+          <p>X-axis Data (Labels)</p>
+          <p>Enter comma-seperated values</p>
+          <InputText
+            onChange={(e) => setStateX(e.target.value)}
+            value={stateX}
+            placeholder="'January', 'February', 'March', 'April', 'May', 'June', 'July'"
+          />
+        </div>
 
-      <div className={styles.y_axis}>
-        <p>Y-axis Data (Values)</p>
-        <span>Enter comma-seperated values</span>
-        <InputText value={stateY} onChange={(e) => setStateY(e.target.value)} />
+        <div className={styles.y_axis}>
+          <p>Y-axis Data (Values)</p>
+          <p>Enter comma-seperated values</p>
+          <InputText
+            value={stateY}
+            onChange={(e) => setStateY(e.target.value)}
+            placeholder="65, 59, 80, 81, 56, 55, 40"
+          />
+        </div>
       </div>
 
       <Toast ref={toastTL} position="top-center" />

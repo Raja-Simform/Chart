@@ -5,13 +5,3 @@
   width: 100%;
   padding: 10px;
 }
-.x_axis {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.y_axis {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
