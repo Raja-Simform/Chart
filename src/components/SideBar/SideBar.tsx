@@ -29,6 +29,13 @@ export default function SideBar({ handleClick }: SideBarProps) {
         className={styles.buttonchart}
         onClick={() => handleClick(ChartType.Area)}
       />
+       <Button
+        type="button"
+        label="Donut Chart"
+        className={styles.buttonchart}
+        onClick={() => handleClick(ChartType.Donut)}
+      />
+     
     </div>
   );
 }
