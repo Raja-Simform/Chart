@@ -7,19 +7,8 @@ interface addDataPlayload {
 const chartSlice = createSlice({
   name: "Chart",
   initialState: {
-    y_axis: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380],
-    x_axis: [
-      "South Korea",
-      "Canada",
-      "United Kingdom",
-      "Netherlands",
-      "Italy",
-      "France",
-      "Japan",
-      "United States",
-      "China",
-      "Germany",
-    ],
+    y_axis: [] as Array<number>,
+    x_axis: [] as Array<string>,
   },
 
   reducers: {

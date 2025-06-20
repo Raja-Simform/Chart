@@ -23,7 +23,7 @@ export default function Chart({ type }: ChartProps) {
         ],
         chart: {
           type: type,
-          height: 350,
+          height: "80%",
           toolbar: {
             show: false,
           },

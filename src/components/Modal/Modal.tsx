@@ -4,12 +4,11 @@ import { useRef, useState } from "react";
 import { useAppDispatch } from "../../store/ChartStore";
 import { addData } from "../../store/ChartSlice";
 import { Button } from "primereact/button";
-interface DataProps {
-  stateX: string;
-  stateY: string;
-}
+
 import { Toast } from "primereact/toast";
 import { Dialog } from "primereact/dialog";
+import Preview from "../Preview/Preview";
+import { ConvertDataToArray } from "../../utility/convertData";
 interface ModalProps {
   handleModal: (value: boolean) => void;
   isVisible: boolean;
@@ -17,21 +16,16 @@ interface ModalProps {
 export default function Modal({ handleModal, isVisible }: ModalProps) {
   const [stateX, setStateX] = useState<string>("");
   const [stateY, setStateY] = useState<string>("");
-
+  const [preview, setPreview] = useState<boolean>(false);
+  function handlePreview(value: boolean) {
+    setPreview(value);
+  }
   const dispatch = useAppDispatch();
   const toastTL = useRef<Toast>(null);
 
-  function handleSubmit(data: DataProps) {
-    const dataX = data.stateX
-      .split(",")
-      .map((item) => item.trim())
-      .filter((item) => item !== "");
-    const dataY = data.stateY
-      .split(",")
-      .map((item) => item.trim())
-      .filter((item) => item !== "")
-      .map((item) => Number(item))
-      .filter((item) => !isNaN(item));
+  function handleSubmit() {
+    const dataX: string[] = ConvertDataToArray(stateX, "string") as string[];
+    const dataY: number[] = ConvertDataToArray(stateY, "number") as number[];
 
     if (dataX.length === dataY.length && dataX.length !== 0) {
       setStateX("");
@@ -76,6 +70,14 @@ export default function Modal({ handleModal, isVisible }: ModalProps) {
         handleModal(false);
       }}
     >
+      {preview && (
+        <Preview
+          preview={preview}
+          handlePreview={handlePreview}
+          stateX={stateX}
+          stateY={stateY}
+        />
+      )}
       <div className={styles.input}>
         <div className={styles.x_axis}>
           <p>X-axis Data (Labels)</p>
@@ -104,7 +106,13 @@ export default function Modal({ handleModal, isVisible }: ModalProps) {
           type="button"
           label="Submit"
           className={styles.buttonchart}
-          onClick={() => handleSubmit({ stateX, stateY })}
+          onClick={() => handleSubmit()}
+        />
+        <Button
+          type="button"
+          label="Preview"
+          className={styles.buttonchart}
+          onClick={() => handlePreview(true)}
         />
       </div>
     </Dialog>
