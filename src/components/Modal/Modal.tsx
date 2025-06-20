@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { useAppDispatch } from "../../store/ChartStore";
 import { addData } from "../../store/ChartSlice";
 import { Button } from "primereact/button";
-
+import { Tooltip } from "primereact/tooltip";
 import { Toast } from "primereact/toast";
 import { Dialog } from "primereact/dialog";
 import Preview from "../Preview/Preview";
@@ -80,22 +80,31 @@ export default function Modal({ handleModal, isVisible }: ModalProps) {
       )}
       <div className={styles.input}>
         <div className={styles.x_axis}>
-          <p>X-axis Data (Labels)</p>
-          <p>Enter comma-seperated values</p>
+          <Tooltip target=".custom-tooltip-label">
+            <p>X-axis Data (Labels)</p>
+            <p>Enter comma-seperated values</p>
+          </Tooltip>
+
           <InputText
             onChange={(e) => setStateX(e.target.value)}
             value={stateX}
             placeholder="'January', 'February', 'March', 'April', 'May', 'June', 'July'"
+            className="custom-tooltip-label"
           />
         </div>
 
         <div className={styles.y_axis}>
-          <p>Y-axis Data (Values)</p>
-          <p>Enter comma-seperated values</p>
+          <Tooltip target=".custom-tooltip-value">
+            <p data-pr-tooltip="PrimeReact-Logo">Y-axis Data (Values)</p>
+            <p data-pr-tooltip="PrimeReact-Logo">
+              Enter comma-seperated values
+            </p>
+          </Tooltip>
           <InputText
             value={stateY}
             onChange={(e) => setStateY(e.target.value)}
             placeholder="65, 59, 80, 81, 56, 55, 40"
+            className="custom-tooltip-value"
           />
         </div>
       </div>

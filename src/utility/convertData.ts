@@ -1,4 +1,7 @@
-export function ConvertDataToArray(data: string, type: string): Array<string | number> {
+export function ConvertDataToArray(
+  data: string,
+  type: string
+): Array<string | number> {
   if (type === "string") {
     return data
       .split(",")

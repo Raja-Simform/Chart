@@ -1,3 +1,6 @@
 .preview {
   width: 40vw;
 }
+.table {
+  min-width: 35rem;
+}

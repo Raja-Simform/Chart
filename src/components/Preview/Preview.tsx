@@ -38,7 +38,7 @@ export default function Preview({
         paginator
         showGridlines
         rows={10}
-        tableStyle={{ minWidth: "35rem" }}
+        className={styles.table}
       >
         <Column field="x-axis" header="X-Axis"></Column>
         <Column field="y-axis" header="Y-Axis"></Column>

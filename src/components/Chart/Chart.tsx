@@ -36,7 +36,7 @@ export default function Chart({ type }: ChartProps) {
           },
         },
         dataLabels: {
-          enabled: false,
+          enabled: true,
         },
         xaxis: {
           categories: chartData.x_axis,
