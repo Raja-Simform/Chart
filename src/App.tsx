@@ -9,7 +9,7 @@ import { useState } from "react";
 import type { ChartType } from "./constants/constant";
 
 function App() {
-  const [chartType, setChartType] = useState<ChartType | null>(null);
+  const [chartType, setChartType] = useState<ChartType>();
 
   function handleCLick(type: ChartType) {
     setChartType(type);
@@ -20,7 +20,11 @@ function App() {
       <Header />
       <main className="container">
         <SideBar handleClick={handleCLick} />
-        <Chart type={chartType} />
+        {chartType ? (
+          <Chart type={chartType} />
+        ) : (
+          <div className="statement">Please select a chart.</div>
+        )}
       </main>
     </div>
   );

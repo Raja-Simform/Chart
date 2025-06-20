@@ -1,4 +1,10 @@
 .container {
   display: flex;
   height: calc(100vh - 5rem);
+  color: white;
+  font-family: monospace;
+}
+.statement{
+  margin: auto;
+  font-size: 1.5rem;
 }
