@@ -1,4 +1,5 @@
 import { ChartType } from "../../constants/constant";
+import Input from "../Input/Input";
 import styles from "./SideBar.module.css";
 import { Button } from "primereact/button";
 
@@ -8,6 +9,7 @@ interface SideBarProps {
 export default function SideBar({ handleClick }: SideBarProps) {
   return (
     <div className={styles.sidebar}>
+      <Input />
       <h2>Choose Graph from below</h2>
       <Button
         type="button"

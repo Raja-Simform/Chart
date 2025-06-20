@@ -3,6 +3,7 @@ interface addDataPlayload {
   x_axis: Array<string>;
   y_axis: Array<number>;
 }
+
 const chartSlice = createSlice({
   name: "Chart",
   initialState: {

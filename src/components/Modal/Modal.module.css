@@ -1,0 +1,29 @@
+.x_axis {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.y_axis {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.x_axis p,
+.y_axis p {
+  margin: 0;
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.modal {
+  width: 35vw;
+}
+.modalButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  gap: 10px;
+}
