@@ -1,18 +1,18 @@
-export function ConvertDataToArray(
+export function ConvertDataToArray<T extends string | number>(
   data: string,
   type: string
-): Array<string | number> {
+): T[] {
   if (type === "string") {
     return data
       .split(",")
       .map((item: string) => item.trim())
-      .filter((item: string) => item !== "");
+      .filter((item: string) => item !== "") as T[];
   } else {
     return data
       .split(",")
       .map((item: string) => item.trim())
       .filter((item: string) => item !== "")
       .map((item: string) => Number(item))
-      .filter((item: number) => !isNaN(item));
+      .filter((item: number) => !isNaN(item)) as T[];
   }
 }

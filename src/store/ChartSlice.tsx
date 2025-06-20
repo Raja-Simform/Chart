@@ -3,13 +3,18 @@ interface addDataPlayload {
   x_axis: Array<string>;
   y_axis: Array<number>;
 }
+interface initialStateType {
+  y_axis: Array<number>;
+  x_axis: Array<string>;
+}
+const initialState: initialStateType = {
+  y_axis: [],
+  x_axis: [],
+};
 
 const chartSlice = createSlice({
   name: "Chart",
-  initialState: {
-    y_axis: [] as Array<number>,
-    x_axis: [] as Array<string>,
-  },
+  initialState: initialState,
 
   reducers: {
     addData(state, action: PayloadAction<addDataPlayload>) {

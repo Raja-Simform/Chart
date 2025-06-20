@@ -24,8 +24,8 @@ export default function Modal({ handleModal, isVisible }: ModalProps) {
   const toastTL = useRef<Toast>(null);
 
   function handleSubmit() {
-    const dataX: string[] = ConvertDataToArray(stateX, "string") as string[];
-    const dataY: number[] = ConvertDataToArray(stateY, "number") as number[];
+    const dataX: string[] = ConvertDataToArray<string>(stateX, "string");
+    const dataY: number[] = ConvertDataToArray<number>(stateY, "number");
 
     if (dataX.length === dataY.length && dataX.length !== 0) {
       setStateX("");
@@ -81,10 +81,9 @@ export default function Modal({ handleModal, isVisible }: ModalProps) {
       <div className={styles.input}>
         <div className={styles.x_axis}>
           <Tooltip target=".custom-tooltip-label">
-            <p>X-axis Data (Labels)</p>
-            <p>Enter comma-seperated values</p>
+            <p>Enter comma-seperated labels</p>
           </Tooltip>
-
+          <p>X-axis Data (Labels)</p>
           <InputText
             onChange={(e) => setStateX(e.target.value)}
             value={stateX}
@@ -95,11 +94,9 @@ export default function Modal({ handleModal, isVisible }: ModalProps) {
 
         <div className={styles.y_axis}>
           <Tooltip target=".custom-tooltip-value">
-            <p data-pr-tooltip="PrimeReact-Logo">Y-axis Data (Values)</p>
-            <p data-pr-tooltip="PrimeReact-Logo">
-              Enter comma-seperated values
-            </p>
+            <p>Enter comma-seperated values</p>
           </Tooltip>
+          <p>Y-axis Data (Values)</p>
           <InputText
             value={stateY}
             onChange={(e) => setStateY(e.target.value)}
