@@ -1,8 +1,8 @@
 import styles from "./Modal.module.css";
 import { InputText } from "primereact/inputtext";
 import { useRef, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/ChartStore";
-import { addData, openModal } from "../../store/ChartSlice";
+import { useAppDispatch } from "../../store/ChartStore";
+import { addData } from "../../store/ChartSlice";
 import { Button } from "primereact/button";
 interface DataProps {
   stateX: string;
@@ -12,11 +12,12 @@ import { Toast } from "primereact/toast";
 import { Dialog } from "primereact/dialog";
 interface ModalProps {
   handleModal: (value: boolean) => void;
+  isVisible: boolean;
 }
-export default function Modal({ handleModal }: ModalProps) {
+export default function Modal({ handleModal, isVisible }: ModalProps) {
   const [stateX, setStateX] = useState<string>("");
   const [stateY, setStateY] = useState<string>("");
-  const chartData = useAppSelector((state) => state.chart);
+
   const dispatch = useAppDispatch();
   const toastTL = useRef<Toast>(null);
 
@@ -35,6 +36,7 @@ export default function Modal({ handleModal }: ModalProps) {
     if (dataX.length === dataY.length && dataX.length !== 0) {
       setStateX("");
       setStateY("");
+
       dispatch(
         addData({
           x_axis: dataX,
@@ -67,15 +69,11 @@ export default function Modal({ handleModal }: ModalProps) {
   return (
     <Dialog
       header="Enter Data"
-      visible={chartData.modalVisible}
+      visible={isVisible}
       className={styles.modal}
       onHide={() => {
-        if (!chartData.modalVisible) return;
-        dispatch(
-          openModal({
-            modalVisible: false,
-          })
-        );
+        if (!isVisible) return;
+        handleModal(false);
       }}
     >
       <div className={styles.input}>

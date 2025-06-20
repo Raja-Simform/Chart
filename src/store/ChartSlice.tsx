@@ -3,9 +3,7 @@ interface addDataPlayload {
   x_axis: Array<string>;
   y_axis: Array<number>;
 }
-interface openModalPlayload {
-  modalVisible: boolean;
-}
+
 const chartSlice = createSlice({
   name: "Chart",
   initialState: {
@@ -22,7 +20,6 @@ const chartSlice = createSlice({
       "China",
       "Germany",
     ],
-    modalVisible: false,
   },
 
   reducers: {
@@ -30,10 +27,7 @@ const chartSlice = createSlice({
       state.x_axis = action.payload.x_axis;
       state.y_axis = action.payload.y_axis;
     },
-    openModal(state, action: PayloadAction<openModalPlayload>) {
-      state.modalVisible = action.payload.modalVisible;
-    },
   },
 });
-export const { addData, openModal } = chartSlice.actions;
+export const { addData } = chartSlice.actions;
 export default chartSlice.reducer;

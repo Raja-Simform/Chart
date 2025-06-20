@@ -1,18 +1,14 @@
 import styles from "./Input.module.css";
 import { Button } from "primereact/button";
 import Modal from "../Modal/Modal";
-import { useAppDispatch, useAppSelector } from "../../store/ChartStore";
-import { openModal } from "../../store/ChartSlice";
+
+import { useState } from "react";
 
 export default function Input() {
-  const dispatch = useAppDispatch();
-  const chartData = useAppSelector((state) => state.chart);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
   function handleModal(value: boolean) {
-    dispatch(
-      openModal({
-        modalVisible: value,
-      })
-    );
+    setIsVisible(value);
   }
 
   return (
@@ -23,7 +19,7 @@ export default function Input() {
         className={styles.buttonchart}
         onClick={() => handleModal(true)}
       />
-      {chartData.modalVisible && <Modal handleModal={handleModal} />}
+      {isVisible && <Modal handleModal={handleModal} isVisible={isVisible} />}
     </div>
   );
 }
