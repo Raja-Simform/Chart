@@ -22,7 +22,7 @@ export default function Chart({ type }: ChartProps) {
           },
         ],
         chart: {
-          type: type,
+          type: type!,
           height: "80%",
           toolbar: {
             show: false,
@@ -54,5 +54,9 @@ export default function Chart({ type }: ChartProps) {
     };
   }, [type, chartData.y_axis, chartData.x_axis]);
 
-  return <div className={styles.chart} ref={chartRef}></div>;
+  return (
+    <div className={styles.chart} ref={chartRef}>
+     {type ? null : "No chart Selected"}
+    </div>
+  );
 }
