@@ -68,7 +68,7 @@ export default function Modal({ handleModal }: ModalProps) {
     <Dialog
       header="Enter Data"
       visible={chartData.modalVisible}
-      style={{ width: "35vw" }}
+      className={styles.modal}
       onHide={() => {
         if (!chartData.modalVisible) return;
         dispatch(
